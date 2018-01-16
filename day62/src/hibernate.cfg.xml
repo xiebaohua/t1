@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+	<!-- 1、数据库链接 -->
+	<property name="hibernate.connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="hibernate.connection.url">
+		jdbc:mysql://localhost:3306/day62
+	</property>
+	<property name="hibernate.connection.username">root</property>
+	<property name="hibernate.connection.password">root</property>
+	<!-- 2、Hibernate的基本配置 -->
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+	<property name="hibernate.show_sql">true</property>
+	<property name="hibernate.format_sql">true</property>
+	<property name="hibernate.hbm2ddl.auto">update</property>
+	<property name="hibernate.connection.provider_class">
+		org.hibernate.c3p0.internal.C3P0ConnectionProvider
+	</property>
+
+
+	<!-- 绑定session到当前线程上 
+		hibernate.current_session_context_class  : 告诉框架使用哪种技术绑定当前线程
+		thread： 使用ThreadLocal技术绑定到当前线程
+	-->
+	<property name="hibernate.current_session_context_class">
+		thread
+	</property>
+
+
+	<!-- 3、映射文件的位置 -->
+	<mapping class="cn.itcast.entity.Customer" />
+
+</session-factory>
+</hibernate-configuration>

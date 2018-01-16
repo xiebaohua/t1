@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- <struts>
+	开发者模式
+	<constant name="struts.devMode" value="true"></constant>
+	
+	客户包
+	<package name="customer" extends="struts-default" namespace="/customer">
+		<action name="findAllCustomer" class="cn.itcast.action.CustomerAction" method="findAllCustomer">
+			<result name="findAllCustomer" type="dispatcher">/jsp/customer/list.jsp</result>
+		</action>
+		
+	</package>
+</struts> -->
+
+<struts>
+	
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	
+	
+	<package name="customer" extends="struts-default" namespace="/customer">
+		
+		<action name="findAllCustomer" class="cn.itcast.action.CustomerAction" method="findAllCustomer">
+			<result name="success" type="dispatcher">/jsp/customer/list.jsp</result>
+		</action>
+		<action name="addCustomerUI" >
+			<result>/jsp/customer/add.jsp</result>
+		</action>
+		
+		<action name="addCustomer" class="cn.itcast.action.CustomerAction" method="addCustomer">
+			<result>/jsp/success.jsp</result>
+		</action>
+	</package>
+</struts>
